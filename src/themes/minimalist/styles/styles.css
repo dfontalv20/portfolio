@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Readex+Pro:wght@160..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+@import "../../../styles/global.css";
+
+@theme {
+  --color-accent-1: #022b3a;
+  --color-accent-3: #1f7a8c;
+  --color-accent-2: #bfdbf7;
+  --color-accent-5: #00e5ff;
+  --color-accent-6: #e1e5f2;
+
+  --font-readex-pro: "Readex Pro", sans-serif;
+  --font-elms-sans: "Elms Sans", sans-serif;
+  --font-roboto-mono: "Roboto Mono", monospace;
+}
