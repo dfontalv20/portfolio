@@ -4,22 +4,23 @@ import Case from "@/themes/minimalist/assets/case.webp";
 import Plant from "@/themes/minimalist/assets/plant.webp";
 ---
 
-<section class="flex sticky top-0 flex-col items-center overflow-hidden pt-20 text-center">
+<section
+  class="sticky top-0 flex h-dvh flex-col items-center overflow-hidden pt-20 text-center"
+>
   <h1
     id="hero"
-    class="font-readex-pro mb-7 px-10 text-center text-6xl leading-none opacity-0 transition-opacity transition-discrete duration-500 sm:text-8xl md:mb-10 md:text-9xl lg:mb-24 lg:text-[clamp(160px,10vw,1000px)]"
+    class="font-readex-pro my-auto pb-7 md:pb-0 px-10 text-center text-6xl leading-none opacity-0 transition-opacity transition-discrete duration-500 sm:text-8xl md:mb-10 md:text-9xl lg:mb-24 lg:text-[clamp(160px,10vw,1000px)]"
   >
     Diego Fontalvo
   </h1>
+  <!-- Monitor -->
   <div
-    class="relative isolate grid w-max grid-cols-1 justify-center gap-10 overflow-hidden md:grid-cols-3"
+    class="relative isolate hidden w-max grid-cols-1 justify-center gap-10 overflow-hidden md:grid md:grid-cols-3"
   >
     <img
       src={Plant.src}
       class="relative -bottom-30 z-10 hidden h-min self-end justify-self-end object-contain md:block"
     />
-
-    <!-- Monitor -->
     <div
       class="relative -bottom-10 isolate z-20 w-185.5 max-w-[95vw] min-w-0 shrink-0 self-end md:-bottom-1/6"
     >
@@ -57,30 +58,77 @@ import Plant from "@/themes/minimalist/assets/plant.webp";
     >
     </div>
   </div>
+
+  <!-- Phone -->
+  <div class="relative isolate my-auto w-max md:hidden">
+    <div
+      class="bg-accent-1 relative isolate z-20 flex aspect-9/18 w-[70dvw] max-w-[95vw] min-w-0 shrink-0 flex-col self-end overflow-hidden rounded-4xl border-8 border-black text-xs text-nowrap sm:text-base"
+    >
+      <div
+        class="mt-2 grid w-full grid-cols-3 items-center justify-between px-4"
+      >
+        <span class="font-elms-sans text-left text-xs font-medium text-white"
+          >{
+            () => {
+              const now = new Date();
+              return `${now.getHours()}:${String(now.getMinutes())}`;
+            }
+          }</span
+        >
+        <div class="size-3 place-self-center rounded-full bg-slate-950"></div>
+        <div
+          class="font-elms-sans grid place-content-center justify-self-end rounded-4xl bg-white px-1 text-center text-[10px] font-bold"
+        >
+          100
+        </div>
+      </div>
+      <div
+        class="font-readex-pro text-accent-2 border-accent-3 grid place-items-center border-b p-1 text-center"
+      >
+        portfolio.js
+      </div>
+      <div class="grid flex-1 grid-cols-[auto_1fr] gap-3 px-3 py-4">
+        <div
+          class="font-roboto-mono text-left text-wrap"
+          id="portfolio-code-mobile"
+        >
+        </div>
+      </div>
+    </div>
+    <div
+      class="bg-accent-2 absolute right-1/2 bottom-0 h-1/2 w-[97vw] translate-x-1/2 rounded-3xl"
+    >
+    </div>
+  </div>
 </section>
 
 <script>
   import Typed from "typed.js";
-  new Typed("#portfolio-code", {
-    strings: [
-      [
-        '<span class="text-accent-5">const </span>',
-        '<span class="text-white">portfolio</span>',
-        '<span class="text-accent-2"> = </span>',
-        '<span class="text-accent-5">new</span>',
-        '<span class="text-white"> Portfolio() </span>',
-        "</br>",
-        `<span class="text-white">portfolio</span><span class="text-accent-5"
-        >.showHeroTitle</span
-      ><span class="text-white"
-        >()</span
-      >`,
-      ].join(""),
-    ],
-    typeSpeed: 25,
-    cursorChar: "|",
-    showCursor: true,
-    onComplete: () =>
-      document.getElementById("hero")?.classList.toggle("opacity-0"),
+  const codeSections = ["#portfolio-code", "#portfolio-code-mobile"];
+  codeSections.forEach((element) => {
+    new Typed(element, {
+      strings: [
+        [
+          '<span class="text-accent-5">const </span>',
+          '<span class="text-white">portfolio</span>',
+          '<span class="text-accent-2"> = </span>',
+          '<span class="text-accent-5">new</span>',
+          '<span class="text-white"> Portfolio() </span>',
+          "</br>",
+          `<span class="text-white">portfolio</span><span class="text-accent-5"
+          >.showHeroTitle</span
+        ><span class="text-white"
+          >()</span
+        >`,
+        ].join(""),
+      ],
+      typeSpeed: 25,
+      showCursor: false,
+      onComplete: () => {
+        const heroTitle = document.getElementById("hero");
+        if (heroTitle?.classList.contains("opacity-0"))
+          heroTitle.classList.remove("opacity-0");
+      },
+    });
   });
 </script>
