@@ -1,16 +1,26 @@
 ---
 import Hero from "../components/Hero.astro";
+import Projects from "../components/Projects.astro";
 ---
 
-<main class="relative overflow-auto bg-white">
+<main class="bg-white">
   <header
-    class="fixed top-0 right-1/2 mt-4 grid translate-x-1/2 place-items-center rounded-4xl bg-white/80 px-6 py-5 backdrop-blur-md"
+    class="fixed top-0 right-1/2 mt-4 grid translate-x-1/2 place-items-center rounded-4xl bg-white/80 px-6 py-5 backdrop-blur-md z-50"
   >
     <nav class="font-elms-sans flex items-center gap-7 text-sm font-bold">
-      <a href="#">Projects</a>
+      <a href="#projects">Projects</a>
       <a href="#">Experience</a>
       <a href="#">Contact</a>
     </nav>
   </header>
   <Hero />
+  <div class="bg-white relative top-0 z-1 isolate rounded-t-3xl border-t-3 border-t-accent-6">
+    <Projects />
+  </div>
 </main>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
