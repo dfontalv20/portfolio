@@ -1,7 +1,8 @@
 ---
-import Screen from "@/themes/minimalist/assets/screen.webp";
-import Case from "@/themes/minimalist/assets/case.webp";
-import Plant from "@/themes/minimalist/assets/plant.webp";
+import screen from "@/themes/minimalist/assets/screen.webp";
+import caseImg from "@/themes/minimalist/assets/case.webp";
+import plant from "@/themes/minimalist/assets/plant.webp";
+import { Image } from "astro:assets";
 ---
 
 <section
@@ -9,7 +10,7 @@ import Plant from "@/themes/minimalist/assets/plant.webp";
 >
   <h1
     id="hero"
-    class="font-readex-pro my-auto pb-7 md:pb-0 px-10 text-center text-6xl leading-none opacity-0 transition-opacity transition-discrete duration-500 sm:text-8xl md:mb-10 md:text-9xl lg:mb-24 lg:text-[clamp(160px,10vw,1000px)]"
+    class="font-readex-pro my-auto px-10 pb-7 text-center text-6xl leading-none opacity-0 transition-opacity transition-discrete duration-500 sm:text-8xl md:mb-10 md:pb-0 md:text-9xl lg:mb-24 lg:text-[clamp(160px,10vw,1000px)]"
   >
     Diego Fontalvo
   </h1>
@@ -17,14 +18,19 @@ import Plant from "@/themes/minimalist/assets/plant.webp";
   <div
     class="relative isolate hidden w-max grid-cols-1 justify-center gap-10 overflow-hidden md:grid md:grid-cols-3"
   >
-    <img
-      src={Plant.src}
+    <Image
+      src={plant}
+      alt="Decoration plant"
       class="relative -bottom-30 z-10 hidden h-min self-end justify-self-end object-contain md:block"
     />
     <div
       class="relative -bottom-10 isolate z-20 w-185.5 max-w-[95vw] min-w-0 shrink-0 self-end md:-bottom-1/6"
     >
-      <img src={Screen.src} class="pointer-events-none select-none" />
+      <Image
+        src={screen}
+        alt="Screen"
+        class="pointer-events-none select-none"
+      />
       <div class="absolute inset-0 -z-10 w-full p-[1%]">
         <div
           class="bg-accent-1 flex aspect-video w-full flex-col overflow-hidden text-xs text-nowrap sm:text-base"
@@ -48,8 +54,9 @@ import Plant from "@/themes/minimalist/assets/plant.webp";
       </div>
     </div>
 
-    <img
-      src={Case.src}
+    <Image
+      src={caseImg}
+      alt="Case"
       class="relative -bottom-20 z-10 hidden size-max shrink-0 self-end justify-self-start object-cover md:block"
     />
 

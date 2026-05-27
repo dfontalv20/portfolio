@@ -1,26 +1,15 @@
 ---
-import { getCollection } from "astro:content";
-
-const projects = await getCollection("projects");
+import TaraProject from "./TaraProject.astro";
 ---
 
 <section>
-  <h1 id="projects" class="scroll-mt-5 font-readex-pro py-12 text-center text-5xl lg:text-8xl">Featured Projects</h2>
-  <dl class="grid grid-cols-2 gap-4 px-12">
-    {
-      projects.map((project) => (
-        <div>
-          <div class="bg-accent-6 grid place-content-center min-h-120 max-h-[50vh] overflow-hidden rounded-3xl">
-            <img src="https://placehold.co/800" class="size-full object-contain" />
-          </div>
-          <div class="py-5">
-            <dt class="font-readex-pro text-lg font-bold mb-2">
-              {project.data.title}
-            </dt>
-            <dd class="font-elms-sans text-black/55">{project.data.description}</dd>
-          </div>
-        </div>
-      ))
-    }
-  </dd>
+  <h1
+    id="projects"
+    class="font-readex-pro scroll-mt-5 py-12 text-center text-5xl lg:text-8xl"
+  >
+    Featured Projects
+  </h1>
+  <dl class="flex flex-col gap-y-16 p-4 px-12">
+    <TaraProject />
+  </dl>
 </section>
