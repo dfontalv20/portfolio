@@ -21,6 +21,7 @@ import { Image } from "astro:assets";
     <Image
       src={plant}
       alt="Decoration plant"
+      loading="eager"
       class="relative -bottom-30 z-10 hidden h-min self-end justify-self-end object-contain md:block"
     />
     <div
@@ -29,6 +30,7 @@ import { Image } from "astro:assets";
       <Image
         src={screen}
         alt="Screen"
+        loading="eager"
         class="pointer-events-none select-none"
       />
       <div class="absolute inset-0 -z-10 w-full p-[1%]">
@@ -57,6 +59,7 @@ import { Image } from "astro:assets";
     <Image
       src={caseImg}
       alt="Case"
+      loading="eager"
       class="relative -bottom-20 z-10 hidden size-max shrink-0 self-end justify-self-start object-cover md:block"
     />
 
