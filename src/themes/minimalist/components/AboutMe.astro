@@ -1,0 +1,97 @@
+---
+import * as aboutMe from "@/content/about.md";
+import Me from "@/content/me.webp";
+import Keyboard from "../assets/keyboard.webp";
+import Mouse from "../assets/mouse.webp";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+const skills = aboutMe.frontmatter.skills as {
+  category: string;
+  items: string[];
+}[];
+const Profile = aboutMe.Content;
+const icons: Record<string, string> = {
+  Languages: "mdi:language",
+  Frameworks: "mdi:resource-description-framework",
+  Databases: "mdi:database",
+  "QA & DevOps": "mdi:server-network",
+  AI: "mdi:robot",
+};
+---
+
+<section
+  id="about"
+  class="relative isolate grid grid-cols-1 gap-14 overflow-hidden px-2 pt-20 pb-50 md:px-8 lg:grid-cols-[25%_1fr] xl:grid-cols-[20%_1fr]"
+>
+  <div
+    class="prose-p:font-elms-sans prose-p:text-lg prose-p:leading-normal prose-p:tracking-tigh flex flex-col gap-4 p-6"
+  >
+    <Image
+      src={Me}
+      alt="Me"
+      class="mx-auto aspect-square w-full max-w-2/3 rounded-full object-cover lg:max-w-full"
+    />
+    <h3 class="font-readex-pro text-accent-1 text-[40px] leading-none">
+      About me
+    </h3>
+    <Profile />
+  </div>
+  <div class="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
+    {
+      skills.map((skill) => (
+        <div class="p-4">
+          <Icon
+            name={icons[skill.category] ?? "mdi:help"}
+            class="size-10 text-black"
+          />
+          <h4 class="font-readex-pro text-[40px] leading-none tracking-tighter text-black">
+            {skill.category}
+          </h4>
+          <ul class="flex flex-wrap gap-x-4 gap-y-2 py-3">
+            {skill.items.map((s) => (
+              <li class="font-elms-sans text-accent-1 hover:text-accent-3 text-lg">
+                {s}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+  <div class="absolute right-0 bottom-1/5 isolate -z-10 w-full md:bottom-2/5">
+    <!-- <Image
+      src={Keyboard}
+      alt="keyboard"
+      class="absolute top-30 -right-40 z-10 w-130 rotate-12 object-contain"
+    /> -->
+    <Image
+      src={Mouse}
+      alt="mouse"
+      class="absolute -right-15 z-20 w-40 -rotate-20 object-contain"
+    />
+
+    <div
+      class="bg-accent-2 absolute -right-30 -z-10 h-60 w-100 -rotate-36 rounded-4xl"
+    >
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+  @keyframes float {
+    0% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+</style>
+
+<script></script>
