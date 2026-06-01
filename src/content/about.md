@@ -9,6 +9,7 @@ skills:
       - Python
       - C#
       - Java
+      - Dart
 
   - category: Frameworks
     items:
@@ -20,6 +21,7 @@ skills:
       - Express.js
       - NestJS
       - Laravel
+      - Flutter
 
   - category: Databases
     items:

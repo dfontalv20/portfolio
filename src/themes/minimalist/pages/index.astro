@@ -2,6 +2,7 @@
 import Hero from "../components/Hero.astro";
 import Projects from "../components/Projects.astro";
 import AboutMe from "../components/AboutMe.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <main class="bg-white">
@@ -9,9 +10,9 @@ import AboutMe from "../components/AboutMe.astro";
     class="fixed top-0 right-1/2 z-50 mt-4 grid translate-x-1/2 place-items-center rounded-4xl bg-white/80 px-6 py-5 backdrop-blur-md"
   >
     <nav class="font-elms-sans flex items-center gap-7 text-sm font-bold">
-      <a href="#projects">Projects</a>
       <a href="#about">About</a>
-      <a href="#">Contact</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
   <Hero />
@@ -20,6 +21,13 @@ import AboutMe from "../components/AboutMe.astro";
   >
     <AboutMe />
     <Projects />
+    <Contact />
+    <footer class="flex flex-col px-10 pb-10">
+      <hr class="border-accent-6 mb-5" />
+      <span class="font-elms-sans self-end text-black/40"
+        >Diego Fontalvo 2026</span
+      >
+    </footer>
   </div>
 </main>
 
