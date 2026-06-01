@@ -1,0 +1,47 @@
+---
+import { Icon } from "astro-icon/components";
+import Phone from "../assets/phone.webp";
+import { Image } from "astro:assets";
+---
+
+<section id="contact" class="relative isolate overflow-hidden px-10">
+  <div class="z-10 mx-auto w-full max-w-5xl py-50">
+    <h2 class="font-readex-pro mb-16 text-6xl md:text-7xl lg:text-8xl">
+      Contact me
+    </h2>
+    <div
+      class="flex flex-col flex-wrap items-start gap-5 text-xs sm:text-sm md:text-base lg:text-lg xl:flex-row"
+    >
+      <a
+        href="mailto:d.andres2002@hotmail.com"
+        class="font-elms-sans bg-accent-1 hover:bg-accent-1/80 flex items-center gap-2 rounded-4xl px-4 py-3 font-bold text-white transition-colors"
+      >
+        <Icon name="mdi:email-outline" />
+        d.andres2002@hotmail.com</a
+      >
+      <a
+        href="https://www.linkedin.com/in/diegofontalvollinas/"
+        class="font-elms-sans bg-accent-3 hover:bg-accent-3/80 flex items-center gap-2 rounded-4xl px-4 py-3 font-bold text-white transition-colors"
+      >
+        <Icon name="mdi:linkedin" />
+        linkedin.com/in/diegofontalvollinas</a
+      >
+      <a
+        href="https://github.com/dfontalv20"
+        class="font-elms-sans flex items-center gap-2 rounded-4xl bg-black px-4 py-3 font-bold text-white transition-colors hover:bg-black/80"
+      >
+        <Icon name="mdi:github" />
+        dfontalv20</a
+      >
+    </div>
+  </div>
+  <Image
+    src={Phone}
+    alt="phone"
+    class="absolute top-1/2 -right-40 bottom-0 -z-10 -rotate-3 rounded-4xl sm:right-0"
+  />
+  <div
+    class="bg-accent-2 absolute top-1/2 -right-40 -z-20 h-80 w-100 rotate-45 rounded-4xl"
+  >
+  </div>
+</section>
