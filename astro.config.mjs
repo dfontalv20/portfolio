@@ -9,6 +9,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  devToolbar: { enabled: true },
+  site: "https://dfontalv20.github.io",
+  base: "/portfolio",
   integrations: [icon()],
 });
