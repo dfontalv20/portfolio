@@ -27,14 +27,14 @@ skills:
     items:
       - PostgreSQL
       - MySQL
-      - Jest
+      - MongoDB
 
   - category: QA & DevOps
     items:
+      - Jest / Vitest
       - AWS
       - Linux
       - Git / GitHub
-      - AWS
 
   - category: AI
     items:
