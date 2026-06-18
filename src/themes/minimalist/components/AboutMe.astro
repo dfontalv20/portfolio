@@ -94,6 +94,7 @@ const icons: Record<string, string> = {
 </style>
 
 <script>
+  import { logEvent } from "@/lib/firebase";
   document.addEventListener("DOMContentLoaded", () => {
     const section = document.getElementById("about");
     if (!section) return;
@@ -107,6 +108,7 @@ const icons: Record<string, string> = {
           targets.forEach((el, i) => {
             setTimeout(() => el.classList.add("revealed"), i * 120);
           });
+          logEvent("view_about_section", { section: "about" });
         }
       },
       { threshold: 0.15 },
