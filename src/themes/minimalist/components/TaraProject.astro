@@ -23,13 +23,13 @@ const { title, tags, description, logo, sections } = tara?.data;
     class="relative w-full md:row-span-2"
     commandfor="tara_details"
     command="show-modal"
+    id="tara_open_btn"
   >
     <Image
       src={taraLaptop}
       alt="Tara login"
       role="button"
       loading="lazy"
-      id="tara_view_details"
       class="absolute -top-1/2 right-1/2 size-full translate-1/2 object-contain transition-all hover:scale-110 hover:-rotate-3 hover:cursor-pointer"
     />
   </button>
@@ -184,6 +184,16 @@ const { title, tags, description, logo, sections } = tara?.data;
     </div>
   </div>
 </dialog>
+
+<script>
+  import { logEvent } from "@/lib/firebase";
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("tara_open_btn");
+    btn?.addEventListener("click", () => {
+      logEvent("open_project_details", { project: "tara" });
+    });
+  });
+</script>
 
 <style>
   .animate-slide {

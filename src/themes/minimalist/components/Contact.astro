@@ -15,6 +15,7 @@ import { Image } from "astro:assets";
       <a
         href="mailto:d.andres2002@hotmail.com"
         class="font-elms-sans bg-accent-1 hover:bg-accent-1/80 flex items-center gap-2 rounded-4xl px-4 py-3 font-bold text-white transition-colors"
+        data-contact="email"
       >
         <Icon name="mdi:email-outline" />
         d.andres2002@hotmail.com</a
@@ -22,6 +23,7 @@ import { Image } from "astro:assets";
       <a
         href="https://www.linkedin.com/in/diegofontalvollinas/"
         class="font-elms-sans bg-accent-3 hover:bg-accent-3/80 flex items-center gap-2 rounded-4xl px-4 py-3 font-bold text-white transition-colors"
+        data-contact="linkedin"
       >
         <Icon name="mdi:linkedin" />
         linkedin.com/in/diegofontalvollinas</a
@@ -29,6 +31,7 @@ import { Image } from "astro:assets";
       <a
         href="https://github.com/dfontalv20"
         class="font-elms-sans flex items-center gap-2 rounded-4xl bg-black px-4 py-3 font-bold text-white transition-colors hover:bg-black/80"
+        data-contact="github"
       >
         <Icon name="mdi:github" />
         dfontalv20</a
@@ -45,3 +48,30 @@ import { Image } from "astro:assets";
   >
   </div>
 </section>
+
+<script>
+  import { logEvent } from "@/lib/firebase";
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("contact");
+    if (!section) return;
+    let viewFired = false;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && !viewFired) {
+            viewFired = true;
+            logEvent("view_contact_section", { section: "contact" });
+          }
+        }
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(section);
+
+    section.querySelectorAll("[data-contact]").forEach((el) => {
+      el.addEventListener("click", () => {
+        logEvent("click_contact", { type: el.getAttribute("data-contact") });
+      });
+    });
+  });
+</script>

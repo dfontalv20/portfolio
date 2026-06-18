@@ -2,7 +2,7 @@
 import TaraProject from "./TaraProject.astro";
 ---
 
-<section>
+<section id="projects-section">
   <h1
     id="projects"
     class="font-readex-pro scroll-mt-5 py-12 text-center text-5xl lg:text-8xl"
@@ -13,3 +13,24 @@ import TaraProject from "./TaraProject.astro";
     <TaraProject />
   </dl>
 </section>
+
+<script>
+  import { logEvent } from "@/lib/firebase";
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("projects-section");
+    if (!section) return;
+    let fired = false;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && !fired) {
+            fired = true;
+            logEvent("view_projects_section", { section: "projects" });
+          }
+        }
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(section);
+  });
+</script>
